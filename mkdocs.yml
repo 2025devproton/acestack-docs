@@ -4,7 +4,8 @@ theme:
   name: material
   features:
     - navigation.tabs
-
+  favicon: images/favicon-48.png
+  logo: images/favicon-48.png
 
 markdown_extensions: 
   - attr_list

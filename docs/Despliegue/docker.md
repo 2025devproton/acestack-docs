@@ -30,7 +30,7 @@ Según tus requsitos y tu plataforma, escoje un fichero `docker-compose.yml` y u
 
 Si has escogido y descargado una opción que utilice VPN, es necesario configurar el/los contenedor/es Gluetun. En el docker-compose está indicada la sección donde tienes que especificar la configuración del proveedor, y según el tuyo, puedes encontrar esos valores aquí: [Gluetun Wiki](https://github.com/qdm12/gluetun-wiki/tree/main/setup/providers).
 
-Para modificar el número mínimo de engines para equipos más débiles, modificar la línea `MIN_ENGINES` en el fichero `.env`
+Para modificar el número mínimo de engines para equipos más débiles, modificar la línea `MIN_REPLICAS` en el fichero `.env`
 
 El siguiente paso es desplegar el stack. Para ello, situamos los dos ficheros en un directorio y dentro de ese directorio ejecutamos:
 
