@@ -18,15 +18,15 @@ Según tus requsitos y tu plataforma, escoje un fichero `docker-compose.yml` y u
 
 | Arquitectura | VPN                 | docker-compose                                                          | .env                                          |
 | ------------ | ------------------- | ----------------------------------------------------------------------- | --------------------------------------------- |
-| x64          | No                  | [docker-compose.yml](../files/compose/standalone/docker-compose.yml)    | [.env](../files/env/x64/standalone/.env)      |
-|              | Simple              | [docker-compose.yml](../files/compose/single-vpn/docker-compose.yml)    | [.env](../files/env/x64/single-vpn/.env)      |
-|              | Alta Disponibilidad | [docker-compose.yml](../files/compose/redundant-vpn/docker-compose.yml) | [.env](../files/env/x64/redundant-vpn/.env)   |
-| ARM64        | No                  | [docker-compose.yml](../files/compose/standalone/docker-compose.yml)    | [.env](../files/env/ARM64/standalone/.env)    |
-|              | Simple              | [docker-compose.yml](../files/compose/single-vpn/docker-compose.yml)    | [.env](../files/env/ARM64/single-vpn/.env)    |
-|              | Alta Disponibilidad | [docker-compose.yml](../files/compose/redundant-vpn/docker-compose.yml) | [.env](../files/env/ARM64/redundant-vpn/.env) |
-| ARM32        | No                  | [docker-compose.yml](../files/compose/standalone/docker-compose.yml)    | [.env](../files/env/ARM32/standalone/.env)    |
-|              | Simple              | [docker-compose.yml](../files/compose/single-vpn/docker-compose.yml)    | [.env](../files/env/ARM32/single-vpn/.env)    |
-|              | Alta Disponibilidad | [docker-compose.yml](../files/compose/redundant-vpn/docker-compose.yml) | [.env](../files/env/ARM32/single-vpn/.env)    |
+| x64          | No                  | [docker-compose.yml](https://github.com/acestack-org/acestack-docs/blob/main/files/compose/standalone/docker-compose.yml)    | [.env](https://github.com/acestack-org/acestack-docs/blob/main/files/env/x64/standalone/.env)      |
+|              | Simple              | [docker-compose.yml](https://github.com/acestack-org/acestack-docs/blob/main/files/compose/single-vpn/docker-compose.yml)    | [.env](https://github.com/acestack-org/acestack-docs/blob/main/files/env/x64/single-vpn/.env)      |
+|              | Alta Disponibilidad | [docker-compose.yml](https://github.com/acestack-org/acestack-docs/blob/main/files/compose/redundant-vpn/docker-compose.yml) | [.env](https://github.com/acestack-org/acestack-docs/blob/main/files/env/x64/redundant-vpn/.env)   |
+| ARM64        | No                  | [docker-compose.yml](https://github.com/acestack-org/acestack-docs/blob/main/files/compose/standalone/docker-compose.yml)  | [.env](https://github.com/acestack-org/acestack-docs/blob/main/files/env/ARM64/standalone/.env)    |
+|              | Simple              | [docker-compose.yml](https://github.com/acestack-org/acestack-docs/blob/main/files/compose/single-vpn/docker-compose.yml)    | [.env]((https://github.com/acestack-org/acestack-docs/blob/main/files/env/ARM64/single-vpn/.env))    |
+|              | Alta Disponibilidad | [docker-compose.yml](https://github.com/acestack-org/acestack-docs/blob/main/files/compose/redundant-vpn/docker-compose.yml) | [.env](https://github.com/acestack-org/acestack-docs/blob/main/files/env/ARM64/redundant-vpn/.env) |
+| ARM32        | No                  | [docker-compose.yml](https://github.com/acestack-org/acestack-docs/blob/main/files/compose/standalone/docker-compose.yml)    | [.env](https://github.com/acestack-org/acestack-docs/blob/main/files/env/ARM32/standalone/.env)    |
+|              | Simple              | [docker-compose.yml](https://github.com/acestack-org/acestack-docs/blob/main/files/compose/single-vpn/docker-compose.yml)    | [.env](https://github.com/acestack-org/acestack-docs/blob/main/files/env/ARM32/single-vpn/.env)    |
+|              | Alta Disponibilidad | [docker-compose.yml](https://github.com/acestack-org/acestack-docs/blob/main/files/compose/redundant-vpn/docker-compose.yml) | [.env](https://github.com/acestack-org/acestack-docs/blob/main/files/env/ARM32/redundant-vpn/.env)    |
 
 Si has escogido y descargado una opción que utilice VPN, es necesario configurar el/los contenedor/es Gluetun. En el docker-compose está indicada la sección donde tienes que especificar la configuración del proveedor, y según el tuyo, puedes encontrar esos valores aquí: [Gluetun Wiki](https://github.com/qdm12/gluetun-wiki/tree/main/setup/providers).
 
