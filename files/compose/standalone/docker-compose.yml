@@ -1,0 +1,38 @@
+services:
+  orchestrator:
+    container_name: orchestrator
+    image: ghcr.io/krinkuto11/acestream-orchestrator:latest
+    env_file: .env
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: on-failure
+    networks:
+      - aceserver
+
+  acexy:
+    container_name: acexy
+    image: ghcr.io/krinkuto11/acexy-orchestrator:latest
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      ACEXY_ADDR: ":8080"           
+      ACEXY_SCHEME: "http"           
+      ACEXY_TIMEOUT: "60s"           
+      ACEXY_M3U8: "false"           
+      ACEXY_EMPTY_TIMEOUT: "60s"     
+      ACEXY_BUFFER: "4MB"          
+      ACEXY_NO_RESPONSE_TIMEOUT: "10s" 
+      ACEXY_ORCH_URL: "http://orchestrator:8000" 
+      ACEXY_ORCH_APIKEY: "defaultpassword"       
+      TZ: Europe/Madrid
+      ACEXY_MAX_STREAMS_PER_ENGINE: 2
+    networks:
+      - aceserver
+    depends_on:
+      - orchestrator
+
+networks:
+  aceserver:
+    name: aceserver
+    driver: bridge

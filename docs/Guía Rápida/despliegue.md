@@ -1,0 +1,64 @@
+# Guía de Despliegue
+
+Para usar el stack son necesarios los siguientes requisitos:
+
+* Linux x64, ARM32/64 (Dispatcharr no soporta ARM32)
+* Docker
+* GPU (Para Dispatcharr si quieres usar FFmpeg como proxy)
+
+Después de desplegar todo el stack se puede acceder a los servicios mediante las siguientes URLs:
+
+* Orchestrator Panel: [http://localhost:8000/panel/](http://localhost:8000/panel/)
+* Dispatcharr: [http://localhost:9191](http://localhost:9191/)
+* StreamFlow: [http://localhost:3000](http://localhost:3000/)
+
+### 1. Despliegue del Backend AceStream
+
+Según tus requsitos y tu plataforma, escoje un fichero `docker-compose.yml` y un fichero `.env`
+
+| Arquitectura | VPN                 | docker-compose                                                          | .env                                          |
+| ------------ | ------------------- | ----------------------------------------------------------------------- | --------------------------------------------- |
+| x64          | No                  | [docker-compose.yml](../files/compose/standalone/docker-compose.yml)    | [.env](../files/env/x64/standalone/.env)      |
+|              | Simple              | [docker-compose.yml](../files/compose/single-vpn/docker-compose.yml)    | [.env](../files/env/x64/single-vpn/.env)      |
+|              | Alta Disponibilidad | [docker-compose.yml](../files/compose/redundant-vpn/docker-compose.yml) | [.env](../files/env/x64/redundant-vpn/.env)   |
+| ARM64        | No                  | [docker-compose.yml](../files/compose/standalone/docker-compose.yml)    | [.env](../files/env/ARM64/standalone/.env)    |
+|              | Simple              | [docker-compose.yml](../files/compose/single-vpn/docker-compose.yml)    | [.env](../files/env/ARM64/single-vpn/.env)    |
+|              | Alta Disponibilidad | [docker-compose.yml](../files/compose/redundant-vpn/docker-compose.yml) | [.env](../files/env/ARM64/redundant-vpn/.env) |
+| ARM32        | No                  | [docker-compose.yml](../files/compose/standalone/docker-compose.yml)    | [.env](../files/env/ARM32/standalone/.env)    |
+|              | Simple              | [docker-compose.yml](../files/compose/single-vpn/docker-compose.yml)    | [.env](../files/env/ARM32/single-vpn/.env)    |
+|              | Alta Disponibilidad | [docker-compose.yml](../files/compose/redundant-vpn/docker-compose.yml) | [.env](../files/env/ARM32/single-vpn/.env)    |
+
+Si has escogido y descargado una opción que utilice VPN, es necesario configurar el/los contenedor/es Gluetun. En el docker-compose está indicada la sección donde tienes que especificar la configuración del proveedor, y según el tuyo, puedes encontrar esos valores aquí: [Gluetun Wiki](https://github.com/qdm12/gluetun-wiki/tree/main/setup/providers).
+
+Para modificar el número mínimo de engines para equipos más débiles, modificar la línea `MIN_ENGINES` en el fichero `.env`
+
+El siguiente paso es desplegar el stack. Para ello, situamos los dos ficheros en un directorio y dentro de ese directorio ejecutamos:
+
+```bash
+sudo docker compose pull && sudo docker compose up -d
+```
+
+### 2. Despliegue de Dispatcharr y microservicios (solo 64 bits)
+
+Según hayamos desplegado o no un backend que use una VPN o no, debemos escoger un `docker-compose`:
+
+| VPN? | docker-compose                                                       |
+| ---- | -------------------------------------------------------------------- |
+| ✅    | [docker-compose.yml](../files/iptv-suite/vpn/docker-compose.yml)     |
+| ❌    | [docker-compose.yml](../files/iptv-suite/non-vpn/docker-compose.yml) |
+
+Si se utiliza la opción VPN hay que tener en cuenta lo siguiente:
+
+* M3USource accede a ZeroNet a través de `localhost:43110`
+* Dispatcharr accede a M3USource través de `gluetun:5000`
+
+Es necesario configurar varias cosas en el docker-compose:
+
+* Los mounts de los contenedores (sección volumes de cada contenedor) tienen que coincidir con directorios existentes en el sistema
+* En Streamflow hay que indicar las credenciales de Dispatcharr
+
+El siguiente paso es desplegar el stack. Para ello, situamos el fichero en un directorio y dentro de ese directorio ejecutamos:
+
+```bash
+sudo docker compose pull && sudo docker compose up -d
+```
