@@ -1,11 +1,6 @@
 # Inicio
 
-Esta página contiene toda la documentación para el despliegue y uso del AceStack. 
-Los objetivos principales del Stack son:
-
-  - Un sistema de reproducción P2P resistente y duradero que sea capaz de servir contenido AceStream según las necesidades del servicio.
-  - Un backend que sea capaz de manejar listas M3U/XC, agrupar streams por canales para simplificar su despliegue.
-
+Secciones de la Wiki
 
 <div class="grid cards" markdown>
 
@@ -15,7 +10,7 @@ Los objetivos principales del Stack son:
 
     Despliega el Stack en cuestión de minutos mediante Docker
 
-    [:octicons-arrow-right-24: Empieza aquí](#)
+    [:octicons-arrow-right-24: Empieza aquí](Despliegue/docker)
 
 -   :material-video-wireless:{ .lg .middle } __Backend AceStream__
 
@@ -35,4 +30,8 @@ Los objetivos principales del Stack son:
 
 
 </div>
-    
+
+Los objetivos principales del Stack son:
+
+  - Un sistema de reproducción P2P resistente y duradero que sea capaz de servir contenido AceStream según las necesidades del servicio.
+  - Un backend que sea capaz de manejar listas M3U/XC, agrupar streams por canales para simplificar su despliegue.

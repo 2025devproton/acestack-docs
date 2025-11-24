@@ -1,4 +1,4 @@
-# Guía de Despliegue
+# Despliegue con Docker
 
 Para usar el stack son necesarios los siguientes requisitos:
 
