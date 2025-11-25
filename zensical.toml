@@ -44,10 +44,32 @@ Copyright &copy; 2025 acestack-org
 # can be defined using TOML syntax.
 #
 # Read more: https://zensical.org/docs/setup/navigation/
-# nav = [
-#   { "Get started" = "index.md" },
-#   { "Markdown in 5min" = "markdown.md" },
-# ]
+[[nav]]
+name = "Inicio"
+path = "index.md"
+
+[[nav]]
+name = "Guía Rápida"
+path = "setup/docker.md"
+
+[[nav]]
+name = "Backend"
+path = "backend/backend-index.md"
+
+[[nav]]
+name = "Backend"
+section = "Secciones"
+path = "backend/secciones/backend-technical.md"
+
+[[nav]]
+name = "Backend"
+section = "Secciones"
+path = "backend/secciones/backend-config.md"
+
+[[nav]]
+name = "Backend"
+section = "Secciones"
+
 
 # With the "extra_css" option you can add your own CSS styling to customize
 # your Zensical project according to your needs. You can add any number of
@@ -71,7 +93,6 @@ Copyright &copy; 2025 acestack-org
 # Section for configuring theme options
 # ----------------------------------------------------------------------------
 [project.theme]
-
 # change this to "classic" to use the traditional Material for MkDocs look.
 #variant = "classic"
 
@@ -265,6 +286,8 @@ toggle.name = "Switch to dark mode"
 scheme = "slate"
 toggle.icon = "lucide/moon"
 toggle.name = "Switch to light mode"
+primary = "orange"
+accent = "orange"
 
 # ----------------------------------------------------------------------------
 # In the "font" subsection you can configure the fonts used. By default, fonts

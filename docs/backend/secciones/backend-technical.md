@@ -1,0 +1,3 @@
+# Explicación Técnica
+
+Por hacer.

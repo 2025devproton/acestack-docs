@@ -1,6 +1,13 @@
+---
+hide:
+  - navigation
+  - toc
+---
+
 # Inicio
 
-Secciones de la Wiki
+Bienvenido a la wiki de AceStack! <br/>
+Aquí puedes encontrar el índice principal con las distintas secciones disponibles:
 
 <div class="grid cards" markdown>
 
@@ -16,17 +23,17 @@ Secciones de la Wiki
 
     ---
 
-    Focus on your content and generate a responsive and searchable static site
+    Configuración avanzada del Orquestrador para adaptarla a tu setup
 
-    [:octicons-arrow-right-24: Reference](#)
+    [:octicons-arrow-right-24: Configuración](backend/backend-index)
 
--   :material-format-font:{ .lg .middle } __Made to measure__
+-   :lucide-airplay:{ .lg .middle } __Distribución con Dispatcharr__
 
     ---
 
-    Change the colors, fonts, language, icons, logo and more with a few lines
+    Configuración para Dispatcharr y microservicios relacionados para una experiencia IPTV completa
 
-    [:octicons-arrow-right-24: Customization](#)
+    [:octicons-arrow-right-24: Instrucciones](#)
 
 
 </div>
