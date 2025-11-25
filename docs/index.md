@@ -15,7 +15,7 @@ Aquí puedes encontrar el índice principal con las distintas secciones disponib
 
     ---
 
-    Despliega el Stack en cuestión de minutos mediante Docker
+    Despliega el Stack en cuestión de minutos mediante Docker.
 
     [:octicons-arrow-right-24: Empieza aquí](setup/docker)
 
@@ -23,7 +23,7 @@ Aquí puedes encontrar el índice principal con las distintas secciones disponib
 
     ---
 
-    Configuración avanzada del Orquestrador para adaptarla a tu setup
+    Configuración avanzada del Orquestrador para adaptarla a tu setup.
 
     [:octicons-arrow-right-24: Configuración](backend/backend-index)
 
@@ -31,9 +31,9 @@ Aquí puedes encontrar el índice principal con las distintas secciones disponib
 
     ---
 
-    Configuración para Dispatcharr y microservicios relacionados para una experiencia IPTV completa
+    Configuración para Dispatcharr y microservicios relacionados para una experiencia IPTV completa.
 
-    [:octicons-arrow-right-24: Instrucciones](#)
+    [:octicons-arrow-right-24: Instrucciones](distribución/distribution-index.md)
 
 
 </div>
