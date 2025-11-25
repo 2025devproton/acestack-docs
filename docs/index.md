@@ -10,7 +10,7 @@ Secciones de la Wiki
 
     Despliega el Stack en cuestión de minutos mediante Docker
 
-    [:octicons-arrow-right-24: Empieza aquí](Despliegue/docker)
+    [:octicons-arrow-right-24: Empieza aquí](setup/docker)
 
 -   :material-video-wireless:{ .lg .middle } __Backend AceStream__
 
