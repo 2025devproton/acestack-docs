@@ -44,8 +44,8 @@ Según hayamos desplegado o no un backend que use una VPN o no, debemos escoger 
 
 | VPN? | docker-compose                                                       |
 | ---- | -------------------------------------------------------------------- |
-| ✅    | [docker-compose.yml](../files/iptv-suite/vpn/docker-compose.yml)     |
-| ❌    | [docker-compose.yml](../files/iptv-suite/non-vpn/docker-compose.yml) |
+| ✅    | [docker-compose.yml](https://github.com/acestack-org/acestack-docs/blob/main/files/iptv-suite/vpn/docker-compose.yml)     |
+| ❌    | [docker-compose.yml](https://github.com/acestack-org/acestack-docs/blob/main/files/iptv-suite/non-vpn/docker-compose.yml) |
 
 Si se utiliza la opción VPN hay que tener en cuenta lo siguiente:
 
