@@ -64,7 +64,9 @@ Estas opciones deben configurarse acorde a las necesidades de tu host.
 ### Configuración Avanzada
 Configuración opcional cuyo objetivo es optimizar al máximo el funcionamiento del Orquestrador. Es posible que cambiar estas opciones cause un comportamiento errático del mismo.
 
-**Variable:** `PORT_RANGE_HOST`<br/>
-**Tipo:** Integer-Integer <br/>
-**Explicación:** Define el rango de puertos en el que el Orquestrador puede crear los engines. Importante que estos puertos estén libres.<br/>
-**Valor por defecto:** `19000-19999`<br/><br/>
+
+#### Ubicación de la Base de Datos
+**Variable:** `DB_URL`<br/>
+**Tipo:** sqlite://<ruta\> <br/>
+**Explicación:** Define la ruta (dentro del contenedor) del fichero .db donde se guarda el estado del Orquestrador. Útil cambiarlo si se desea una estructura de ficheros distinta.<br/>
+**Valor por defecto:** `sqlite:///./orchestrator.db`<br/><br/>
