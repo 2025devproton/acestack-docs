@@ -44,35 +44,23 @@ Copyright &copy; 2025 acestack-org
 # can be defined using TOML syntax.
 #
 # Read more: https://zensical.org/docs/setup/navigation/
-[[nav]]
-name = "Inicio"
-path = "index.md"
-
-[[nav]]
-name = "Guía Rápida"
-path = "setup/docker.md"
-
-[[nav]]
-name = "Backend"
-path = "backend/backend-index.md"
-
-[[nav]]
-name = "Backend"
-section = "Secciones"
-path = "backend/secciones/backend-technical.md"
-
-[[nav]]
-name = "Backend"
-section = "Secciones"
-path = "backend/secciones/backend-config.md"
-
-[[nav]]
-name = "Backend"
-section = "Secciones"
-
-[[nav]]
-name = "Distribución"
-path = "distribution-index.md"
+nav = [
+  {"Inicio" = "index.md"},
+  {"Guía Rápida" = [
+     "setup/docker.md",
+  ]},
+  {"Backend" =  [
+    "backend/backend-index.md",
+    {"Explicación Técnica" = "backend/technical/backend-technical.md"},
+    {"Configuración del Orquestrador" = "backend/config/backend-config.md"},
+    {"Configuración de los Engines" = "backend/engines/backend-engines.md"}
+  ]},
+  {"Distribución" = [
+    "distribución/dispatcharr/dispatcharr.md",
+    "distribución/microservicios/microservicios.md",
+    "distribución/streamflow/streamflow.md"
+  ]}
+]
 
 
 
@@ -100,6 +88,8 @@ path = "distribution-index.md"
 [project.theme]
 # change this to "classic" to use the traditional Material for MkDocs look.
 #variant = "classic"
+custom_dir = "overrides"
+
 
 # Zensical allows you to override specific blocks, partials, or whole
 # templates as well as to define your own templates. To do this, uncomment
@@ -239,7 +229,7 @@ features = [
     # When tabs are enabled, top-level sections are rendered in a menu layer
     # below the header for viewports above 1220px, but remain as-is on mobile.
     # https://zensical.org/docs/setup/navigation/#navigation-tabs
-    #"navigation.tabs",
+    "navigation.tabs",
 
     # When sticky tabs are enabled, navigation tabs will lock below the header
     # and always remain visible when scrolling down.
@@ -329,5 +319,4 @@ logo = "lucide/square-play"
 #[[project.extra.social]]
 #icon = "fontawesome/brands/github"
 #link = "https://github.com/user/repo"
-
 

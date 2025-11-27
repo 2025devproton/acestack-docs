@@ -27,7 +27,7 @@ Aquí puedes encontrar el índice principal con las distintas secciones disponib
 
     [:octicons-arrow-right-24: Configuración](backend/backend-index)
 
--   :lucide-airplay:{ .lg .middle } __Distribución con Dispatcharr__
+-   :custom-dispatcharr:{ .lg .middle } __Distribución con Dispatcharr__
 
     ---
 

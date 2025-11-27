@@ -1,3 +1,6 @@
+---
+icon: lucide/cog
+---
 # Configuración del Orquestrador
 
 La configuración del Orquestrador se define en el fichero `.env` que se encuentra, por defecto, en la carpeta raíz donde se ubica el fichero `docker-compose.yml`.
