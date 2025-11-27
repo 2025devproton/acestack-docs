@@ -1,6 +1,7 @@
 # AceStack Docs
 
 This repo contains the source code for the AceStack documentation.
+Currently hosted in: https://acestack-org.github.io/acestack-docs/
 
 To contribute to the documentation:
 
