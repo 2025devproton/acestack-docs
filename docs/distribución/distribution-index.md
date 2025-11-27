@@ -8,15 +8,15 @@ hide:
 
 <div class="grid cards" markdown>
 
--   :material-docker:{ .lg .middle } __Dispatcharr__
+-   :custom-dispatcharr:{ .lg .middle } __Dispatcharr__
 
     ---
 
-    Instrucciones para configurar Dispatcharr.
+    Instrucciones para configurar y utilizar Dispatcharr: Listas, Canales, Perfiles de Proxy, Usuarios y más.<br/><br/>
 
     [:octicons-arrow-right-24: Empieza aquí](dispatcharr/dispatcharr.md)
 
--   :material-video-wireless:{ .lg .middle } __Microservicios__
+-   :lucide-server-cog:{ .lg .middle } __Microservicios__
 
     ---
 
@@ -24,7 +24,7 @@ hide:
 
     [:octicons-arrow-right-24: Leer más](microservicios/microservicios.md)
 
--   :lucide-airplay:{ .lg .middle } __StreamFlow__
+-   :lucide-arrow-down-wide-narrow:{ .lg .middle } __StreamFlow__
 
     ---
 

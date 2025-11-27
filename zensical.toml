@@ -323,3 +323,5 @@ logo = "lucide/square-play"
 #icon = "fontawesome/brands/github"
 #link = "https://github.com/user/repo"
 
+
+options.custom_icons = ["overrides/.icons"]
