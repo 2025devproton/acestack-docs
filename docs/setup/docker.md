@@ -1,3 +1,8 @@
+---
+hide:
+    - navigation
+---
+
 # Despliegue con Docker
 
 Para usar el stack son necesarios los siguientes requisitos:
