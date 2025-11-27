@@ -8,7 +8,7 @@ hide:
 
 <div class="grid cards" markdown>
 
--   :custom-dispatcharr:{ .lg .middle } __Dispatcharr__
+-   :lucide-play:{ .lg .middle } __Dispatcharr__
 
     ---
 
