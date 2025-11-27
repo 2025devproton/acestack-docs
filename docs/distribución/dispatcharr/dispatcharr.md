@@ -74,6 +74,10 @@ Hacemos click en el botón ">" en la parte izquierda de la tarjeta del canal y s
 Dejamos esto así y nos dirigimos a la sección de streams a la derecha. Buscamos los streams correspondientes al canal:
 <br/><br/>
 ![streams_del_canal](../../assets/dispatcharr/streams-3.png)
-<br/>
-Para agregar el stream al canal que tenemos actualmente abierto, hacemos click en el botón azul.
+<br/><br/>
+Para agregar el stream al canal que tenemos actualmente abierto, hacemos click en el botón azul. <br/>
+Con este último paso completado, el canal ya está listo para ser utilizado.
+
+## Configurar Usuarios
+## Configurar Proxy
 
