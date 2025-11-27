@@ -1,3 +1,9 @@
+---
+hide:
+  - navigation
+  - toc
+---
+
 # Distribución: Índice
 
 <div class="grid cards" markdown>

@@ -58,9 +58,10 @@ nav = [
     {"Configuración de los Engines" = "backend/engines/backend-engines.md"}
   ]},
   {"Distribución" = [
-    "distribución/dispatcharr/dispatcharr.md",
-    "distribución/microservicios/microservicios.md",
-    "distribución/streamflow/streamflow.md"
+    "distribución/distribution-index.md",
+    {"Dispatcharr"="distribución/dispatcharr/dispatcharr.md"},
+    {"Microservicios"="distribución/microservicios/microservicios.md"},
+    {"StreamFlow" = "distribución/streamflow/streamflow.md"}
   ]}
 ]
 
