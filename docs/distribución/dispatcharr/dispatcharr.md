@@ -44,7 +44,7 @@ El resto de opciones se pueden dejar como están o configurar a gusto del usuari
 
 Para crear canales con sus correspondientes streams, hay que dirigirse a la sección "Channels" a través del botón que se encuentra en la columna de opciones izquierda.<br/> Una vez ahí, se puede observar:
 
- -  **A la izquierda:** la subsección de los canales (vacía si acabamos de configurar Dispatcharr) 
+ -  **A la izquierda:** la subsección de los canales (vacía si acabamos de configurar Dispatcharr)
  -  **A la derecha:** la subsección de los streams (con streams si hemos configurado con éxito la lista).
 
 El proceso a seguir para crear una canal es el siguiente:
