@@ -33,7 +33,7 @@ Según tus requsitos y tu plataforma, escoje un fichero `docker-compose.yml` y u
 |              | Simple              | [docker-compose.yml](https://github.com/acestack-org/acestack-docs/blob/main/files/compose/single-vpn/docker-compose.yml)    | [.env](https://github.com/acestack-org/acestack-docs/blob/main/files/env/ARM32/single-vpn/.env)    |
 |              | Alta Disponibilidad | [docker-compose.yml](https://github.com/acestack-org/acestack-docs/blob/main/files/compose/redundant-vpn/docker-compose.yml) | [.env](https://github.com/acestack-org/acestack-docs/blob/main/files/env/ARM32/redundant-vpn/.env)    |
 
-Si has escogido y descargado una opción que utilice VPN, es necesario configurar el/los contenedor/es Gluetun. En el docker-compose está indicada la sección donde tienes que especificar la configuración del proveedor, y según el tuyo, puedes encontrar esos valores aquí: [Gluetun Wiki](https://github.com/qdm12/gluetun-wiki/tree/main/setup/providers).
+Si has elegido una versión del stack con VPN, debes configurar el contenedor Gluetun. Solo tienes que completar la sección correspondiente en el `docker-compose` y seguir la guía específica de [Configuración de VPN con Gluetun](../backend/vpn/backend-vpn.md).
 
 Para modificar el número mínimo de engines para equipos más débiles, modificar la línea `MIN_REPLICAS` en el fichero `.env`
 

@@ -34,5 +34,13 @@ Esta sección incluye distintos apartados útiles para el entendimiento y config
 
     [:octicons-arrow-right-24: Instrucciones](engines/backend-engines.md)
 
+-   :lucide-shield-check:{ .lg .middle } __Configuración de VPN con Gluetun__
+
+    ---
+
+    Instrucciones para habilitar una VPN WireGuard con Gluetun y proteger el tráfico del Engine.
+
+    [:octicons-arrow-right-24: Configurar VPN](vpn/backend-vpn.md)
+
 
 </div>
