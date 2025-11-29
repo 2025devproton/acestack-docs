@@ -5,7 +5,7 @@ icon: lucide/play
 
 # Dispatcharr
 
-Dispatcharr es una herramienta de gestiónStream para IPTV que nos permite administrar listas de streams, guías de programación y usuarios para poder enviar una selección de contenido ordenada a nuestros dispositivos.
+Dispatcharr es una herramienta de gestión y distribución para IPTV que nos permite administrar listas de streams, guías de programación y usuarios para poder enviar una selección de contenido ordenada a nuestros dispositivos.
 
 ## Conceptos Importantes a Entender
 
