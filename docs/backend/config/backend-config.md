@@ -46,19 +46,19 @@ Estas opciones deben configurarse acorde a las necesidades de tu host.
 **Explicación:** Define la variante pre-hecha para utilizar, dependiendo de la plataforma del host y las preferencias del usuario.<br/>
 **Valor por defecto:** `krinkuto11-amd64`<br/><br/>
 
-#### Número mínimo de Engines 
+#### Número mínimo de Engines
 **Variable:** `MIN_REPLICAS`<br/>
 **Tipo:** Integer (>0) <br/>
 **Explicación:** Define la cantidad mínima de Engines que debe mantener activos el Orquestrador.<br/>
 **Valor por defecto:** `1`<br/><br/>
 
-#### Número máximo de Engines 
+#### Número máximo de Engines
 **Variable:** `MAX_REPLICAS`<br/>
 **Tipo:** Integer (>0) <br/>
 **Explicación:** Define la cantidad máxima de Engines que puede mantener activos el Orquestrador. Importante si el sistema es limitado en cuanto a capacidad de procesamiento<br/>
 **Valor por defecto:** `20`<br/><br/>
 
-#### Rango de puertos para los Engines 
+#### Rango de puertos para los Engines
 **Variable:** `PORT_RANGE_HOST`<br/>
 **Tipo:** Integer-Integer <br/>
 **Explicación:** Define el rango de puertos en el que el Orquestrador puede crear los engines. Importante que estos puertos estén libres.<br/>

@@ -21,15 +21,15 @@ services:
     ports:
       - "8080:8080"
     environment:
-      ACEXY_ADDR: ":8080"           
-      ACEXY_SCHEME: "http"           
-      ACEXY_TIMEOUT: "60s"           
-      ACEXY_M3U8: "false"           
-      ACEXY_EMPTY_TIMEOUT: "60s"     
-      ACEXY_BUFFER: "4MB"          
-      ACEXY_NO_RESPONSE_TIMEOUT: "10s" 
-      ACEXY_ORCH_URL: "http://orchestrator:8000" 
-      ACEXY_ORCH_APIKEY: "defaultpassword"       
+      ACEXY_ADDR: ":8080"
+      ACEXY_SCHEME: "http"
+      ACEXY_TIMEOUT: "60s"
+      ACEXY_M3U8: "false"
+      ACEXY_EMPTY_TIMEOUT: "60s"
+      ACEXY_BUFFER: "4MB"
+      ACEXY_NO_RESPONSE_TIMEOUT: "10s"
+      ACEXY_ORCH_URL: "http://orchestrator:8000"
+      ACEXY_ORCH_APIKEY: "defaultpassword"
       TZ: Europe/Madrid
       ACEXY_MAX_STREAMS_PER_ENGINE: 2
     networks:
@@ -46,7 +46,7 @@ services:
     devices:
       - /dev/net/tun:/dev/net/tun
     ports:
-      - "19000-19099:19000-19099"      
+      - "19000-19099:19000-19099"
       - "8001:8001"
       - "43110:43110"
       - "43111:43111"
@@ -54,7 +54,7 @@ services:
     environment:
       - PGID=1000
       - PUID=1000
-      # Esta parte debe ser configurada según tu proveedor de VPN 
+      # Esta parte debe ser configurada según tu proveedor de VPN
       # (aquí se usa ProtonVPN con servidor P2P como ejemplo)
       - VPN_SERVICE_PROVIDER=protonvpn
       - VPN_TYPE=wireguard
@@ -62,7 +62,7 @@ services:
       - VPN_PORT_FORWARDING=on
       # Otras configuraciones (se recomienda dejar así)
       - SERVER_COUNTRIES=Spain,France,Germany,Portugal
-      - HTTP_CONTROL_SERVER_ADDRESS=:8001     
+      - HTTP_CONTROL_SERVER_ADDRESS=:8001
       - DOT=off
       - HEALTH_VPN_DURATION_INITIAL=120s
       - HEALTH_TARGET_ADDRESS=cloudflare.com:80
@@ -84,7 +84,7 @@ services:
     environment:
       - PGID=1000
       - PUID=1000
-      # Esta parte debe ser configurada según tu proveedor de VPN 
+      # Esta parte debe ser configurada según tu proveedor de VPN
       # (aquí se usa ProtonVPN con servidor P2P como ejemplo)
       - VPN_SERVICE_PROVIDER=protonvpn
       - VPN_TYPE=wireguard
@@ -92,7 +92,7 @@ services:
       - VPN_PORT_FORWARDING=on
       # Otras configuraciones (se recomienda dejar así)
       - SERVER_COUNTRIES=Spain,France,Germany,Portugal
-      - HTTP_CONTROL_SERVER_ADDRESS=:8001     
+      - HTTP_CONTROL_SERVER_ADDRESS=:8001
       - DOT=off
       - HEALTH_VPN_DURATION_INITIAL=120s
       - HEALTH_TARGET_ADDRESS=cloudflare.com:80

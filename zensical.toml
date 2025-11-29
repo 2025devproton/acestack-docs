@@ -55,7 +55,8 @@ nav = [
     "backend/backend-index.md",
     {"Explicación Técnica" = "backend/technical/backend-technical.md"},
     {"Configuración del Orquestrador" = "backend/config/backend-config.md"},
-    {"Configuración de los Engines" = "backend/engines/backend-engines.md"}
+    {"Configuración de los Engines" = "backend/engines/backend-engines.md"},
+    {"Configuración de VPN con Gluetun" = "backend/vpn/backend-vpn.md"}
   ]},
   {"Distribución" = [
     "distribución/distribution-index.md",
