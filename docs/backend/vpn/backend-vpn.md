@@ -28,7 +28,7 @@ https://github.com/2025devproton/warp-gluetun-generator
 Este proyecto proporciona una imagen Docker que genera automáticamente un perfil WireGuard compatible con Gluetun. Ejecuta:
 
 ```bash
-docker run --rm -v $(pwd):/out 2025devproton/warp-gluetun-generator
+docker run --rm -v $(pwd):/out 2025dev/gen-warp:latest
 ```
 
 Esto creará en el directorio actual:
@@ -53,12 +53,20 @@ No requiere modificaciones adicionales: contiene claves, direcciones, DNS y el p
 En el `docker-compose`, monta el archivo y activa el modo personalizado:
 
 ```yaml
-volumes:
-  - ./wg0.conf:/gluetun/wireguard/wg0.conf:ro
-
-environment:
-  - VPN_SERVICE_PROVIDER=custom
-  - VPN_TYPE=wireguard
+    volumes:
+      - ./wg0.conf:/gluetun/wireguard/wg0.conf:ro
+    environment:
+      - PGID=1000
+      - PUID=1000
+      # Esta parte debe ser configurada según tu proveedor de VPN
+      - VPN_SERVICE_PROVIDER=custom
+      - VPN_TYPE=wireguard
+      # Otras configuraciones (se recomienda dejar así)
+      - HTTP_CONTROL_SERVER_ADDRESS=:8001
+      - DOT=off
+      - HEALTH_VPN_DURATION_INITIAL=120s
+      - HEALTH_TARGET_ADDRESS=cloudflare.com:80
+      - TZ=Europe/Madrid
 ```
 
 Gluetun cargará el túnel Cloudflare Warp y lo usará como salida de red del stack.
@@ -68,7 +76,7 @@ Gluetun cargará el túnel Cloudflare Warp y lo usará como salida de red del st
 Para actualizar el perfil, vuelve a ejecutar:
 
 ```bash
-docker run --rm -v $(pwd):/out 2025devproton/warp-gluetun-generator
+docker run --rm -v $(pwd):/out 2025dev/gen-warp:latest
 ```
 
 Sustituye el nuevo `wg0.conf` y reinicia Gluetun:
