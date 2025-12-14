@@ -51,6 +51,7 @@ nav = [
   {"Instalación" = [
      "setup/index.md",
     {"Instalación recomendada" = "setup/recommended-amd64-vpn.md"},
+    {"Configuración recomendada" = "setup/recommended-config.md"},
     {"Instalación docker" = "setup/docker.md"}
   ]},
   {"Backend" =  [

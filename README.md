@@ -44,7 +44,7 @@ You can run it in two different ways:
 Starts the local documentation server. Any change requires a **manual restart**.
 
 ```bash
-zensical serve
+zensical serve --dev-addr localhost:5555
 ```
 
 ---
@@ -75,7 +75,7 @@ nodemon \
   --ext js,ts,json,yaml,yml,html,md \
   --ignore .zensical \
   --ignore dist \
-  --exec "zensical serve"
+  --exec "zensical serve --dev-addr localhost:5555"
 ```
 
 This setup:

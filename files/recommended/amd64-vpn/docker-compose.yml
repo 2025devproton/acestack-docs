@@ -56,9 +56,7 @@ services:
       - "43110:43110"
       - "43111:43111"
       - "5000:5000"
-      # Acestream
-      - "8621:8621"
-      - "6878:6878"
+      - "5001:5001"
     environment:
       - PGID=1000
       - PUID=1000
@@ -152,6 +150,18 @@ services:
       retries: 3
       start_period: 40s
     restart: unless-stopped
+
+  smart-m3u-manager:
+    container_name: smart-m3u-manager
+    image: 2025dev/smart-m3u-manager:latest
+    restart: unless-stopped
+    network_mode: "container:gluetun"
+    depends_on:
+      dispatcharr:
+        condition: service_started
+    environment:
+      - PORT=5001
+      - DISPATCHARR_URL=http://localhost:9191
 
 networks:
   aceserver:
