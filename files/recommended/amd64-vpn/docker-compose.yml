@@ -1,0 +1,159 @@
+services:
+  ### ----------------------------------------------------------------------------------------------
+  ### BACKEND
+  ### ----------------------------------------------------------------------------------------------
+  orchestrator:
+    container_name: orchestrator
+    image: ghcr.io/krinkuto11/acestream-orchestrator:latest
+    env_file: .env
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: on-failure
+    ports:
+      - "8000:8000"
+    depends_on:
+      gluetun:
+        condition: service_healthy
+    networks:
+      - aceserver
+
+  acexy:
+    container_name: acexy
+    image: ghcr.io/krinkuto11/acexy-orchestrator:latest
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      ACEXY_ADDR: ":8080"
+      ACEXY_SCHEME: "http"
+      ACEXY_TIMEOUT: "60s"
+      ACEXY_M3U8: "false"
+      ACEXY_EMPTY_TIMEOUT: "60s"
+      ACEXY_BUFFER: "4MB"
+      ACEXY_NO_RESPONSE_TIMEOUT: "10s"
+      ACEXY_ORCH_URL: "http://orchestrator:8000"
+      ACEXY_ORCH_APIKEY: "defaultpassword"
+      TZ: Europe/Madrid
+      ACEXY_MAX_STREAMS_PER_ENGINE: 2
+    networks:
+      - aceserver
+    depends_on:
+      - orchestrator
+
+  gluetun:
+    image: qmcgaw/gluetun
+    container_name: gluetun
+    cap_add:
+      - NET_ADMIN
+      - SYS_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    volumes:
+      - ./wg0.conf:/gluetun/wireguard/wg0.conf:ro
+    ports:
+      - "19000-19099:19000-19099"
+      - "8001:8001"
+      - "43110:43110"
+      - "43111:43111"
+      - "5000:5000"
+      # Acestream
+      - "8621:8621"
+      - "6878:6878"
+    environment:
+      - PGID=1000
+      - PUID=1000
+      # Esta parte debe ser configurada según tu proveedor de VPN
+      - VPN_SERVICE_PROVIDER=custom
+      - VPN_TYPE=wireguard
+      # Otras configuraciones (se recomienda dejar así)
+      - HTTP_CONTROL_SERVER_ADDRESS=:8001
+      - DOT=off
+      - HEALTH_VPN_DURATION_INITIAL=120s
+      - HEALTH_TARGET_ADDRESS=cloudflare.com:80
+      - TZ=Europe/Madrid
+    restart: unless-stopped
+    networks:
+      - aceserver
+
+  ### ----------------------------------------------------------------------------------------------
+  ### IPTV-SUITE
+  ### ----------------------------------------------------------------------------------------------
+  zeronet:
+    cap_add:
+      - NET_ADMIN
+      - SYS_ADMIN
+    image: ghcr.io/krinkuto11/zeronet-eguzkilore
+    container_name: zeronet
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Madrid
+    volumes:
+      - /srv/docker/config/zeronet:/app/ZeroNet/data
+    restart: unless-stopped
+    network_mode: "container:gluetun"
+
+  m3usource:
+    image: ghcr.io/krinkuto11/m3usource:latest
+    container_name: m3usource
+    environment:
+      - FLASK_ENV=production
+      - M3U_TIMEOUT=100
+    restart: always
+    network_mode: "container:gluetun"
+    depends_on:
+      dispatcharr:
+        condition: service_started
+
+  dispatcharr:
+    image: ghcr.io/dispatcharr/dispatcharr:latest
+    container_name: dispatcharr
+    ports:
+      - 9191:9191
+    volumes:
+      - /srv/docker/databases/dispatcharr:/data
+    environment:
+      - DISPATCHARR_ENV=aio
+      - REDIS_HOST=localhost
+      - CELERY_BROKER_URL=redis://localhost:6379/0
+      - PGID=1000
+      - PUID=1000
+      - TZ=Europe/Madrid
+    devices:
+      - /dev/dri:/dev/dri # For Intel/AMD GPU acceleration (VA-API)
+    restart: unless-stopped
+    networks:
+      - aceserver
+
+  streamflow:
+    image: ghcr.io/krinkuto11/streamflow:latest
+    container_name: streamflow
+    networks:
+      - aceserver
+    environment:
+      - API_HOST=0.0.0.0
+      - API_PORT=3000
+      - DISPATCHARR_BASE_URL=http://dispatcharr:9191
+      - DISPATCHARR_USER=
+      - DISPATCHARR_PASS=
+      - DEBUG_MODE=false
+      - CONFIG_DIR=/app/data
+      - TZ=Europe/Madrid
+      - PGID=1000
+      - PUID=1000
+    ports:
+      - "3000:3000"
+    volumes:
+      - /srv/docker/databases/stream_checker:/app/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    restart: unless-stopped
+
+networks:
+  aceserver:
+    name: aceserver
+    driver: bridge
