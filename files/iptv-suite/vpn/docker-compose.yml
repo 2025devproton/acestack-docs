@@ -18,8 +18,6 @@ services:
   m3usource:
     image: ghcr.io/krinkuto11/m3usource:latest
     container_name: m3usource
-    ports:
-      - 5000:5000
     environment:
       - FLASK_ENV=development
     restart: always
