@@ -48,8 +48,11 @@ Copyright &copy; 2025 acestack-org
 # Read more: https://zensical.org/docs/setup/navigation/
 nav = [
   {"Inicio" = "index.md"},
-  {"Guía Rápida" = [
-     "setup/docker.md",
+  {"Instalación" = [
+     "setup/index.md",
+    {"Instalación recomendada" = "setup/recommended-amd64-vpn.md"},
+    {"Configuración recomendada" = "setup/recommended-config.md"},
+    {"Instalación docker" = "setup/docker.md"}
   ]},
   {"Backend" =  [
     "backend/backend-index.md",
@@ -127,7 +130,7 @@ favicon = "assets/icons/square-play.svg"
 # Read more:
 # - https://zensical.org/docs/setup/language/
 #
-language = "en"
+language = "es"
 
 # Zensical provides a number of feature toggles that change the behavior
 # of the documentation site.

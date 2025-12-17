@@ -5,40 +5,64 @@ hide:
 ---
 
 # Inicio
+Bienvenido a la wiki de AceStack.
 
-Bienvenido a la wiki de AceStack! <br/>
-Aquí puedes encontrar el índice principal con las distintas secciones disponibles:
+AceStack es un stack modular para la ingestión, procesamiento y distribución de streams AceStream y listas M3U/XC,
+diseñado para funcionar de forma resiliente, escalable y automatizada.
+
+## Empieza aquí
 
 <div class="grid cards" markdown>
 
--   :material-docker:{ .lg .middle } __Guía Rápida__
+-   :material-rocket-launch:{ .lg .middle } __Guía de instalación__
 
     ---
 
-    Despliega el Stack en cuestión de minutos mediante Docker.
+    Instalación recomendada y configuraciones alternativas para desplegar AceStack con Docker.
 
-    [:octicons-arrow-right-24: Empieza aquí](setup/docker)
+    [:octicons-arrow-right-24: Empezar instalación](setup/index.md)
 
 -   :material-video-wireless:{ .lg .middle } __Backend AceStream__
 
     ---
 
-    Configuración avanzada del Orquestrador para adaptarla a tu setup.
+    Configuración avanzada del orquestador AceStream.
 
-    [:octicons-arrow-right-24: Configuración](backend/backend-index)
+    [:octicons-arrow-right-24: Ver backend](backend/backend-index)
 
--   :lucide-airplay:{ .lg .middle } __Distribución con Dispatcharr__
+-   :lucide-airplay:{ .lg .middle } __Distribución IPTV__
 
     ---
 
-    Configuración para Dispatcharr y microservicios relacionados para una experiencia IPTV completa.
+    Configuración de Dispatcharr y microservicios para una experiencia IPTV completa.
 
-    [:octicons-arrow-right-24: Instrucciones](distribución/distribution-index.md)
-
+    [:octicons-arrow-right-24: Ver distribución](distribución/distribution-index.md)
 
 </div>
 
-Los objetivos principales del Stack son:
+## Arquitectura general
 
-  - Un sistema de reproducción P2P resistente y duradero que sea capaz de servir contenido AceStream según las necesidades del servicio.
-  - Un backend que sea capaz de manejar listas M3U/XC, agrupar streams por canales para simplificar su despliegue.
+El siguiente diagrama muestra la arquitectura global de AceStack y cómo los distintos servicios
+colaboran para capturar streams AceStream, procesarlos y distribuirlos como canales IPTV
+de forma (opcionalmente detrás de VPN) y automatizada..
+
+<figure markdown>
+  ![Arquitectura global de AceStack](assets/architecture.png)
+  <figcaption>Arquitectura global del sistema AceStack</figcaption>
+</figure>
+
+**Claves del diagrama:**
+
+- Todo el tráfico P2P y de streaming pasa por contenedores protegidos con **Gluetun VPN**.
+- El backend AceStream escala motores bajo demanda.
+- Dispatcharr actúa como punto central de distribución IPTV.
+- Los canales de Dispatcharr se gestionan y actualizan automáticamente mediante **streamflow**.
+
+## Objetivos del Stack
+
+- Proporcionar un sistema AceStream P2P robusto y escalable, capaz de crear y mantener streams de forma automática según la demanda.
+- Centralizar la gestión y distribución de canales IPTV a partir de listas M3U/XC mediante Dispatcharr.
+- Automatizar la incorporación, actualización y ordenación de streams en los canales mediante **streamflow**, reduciendo la gestión manual.
+
+
+
