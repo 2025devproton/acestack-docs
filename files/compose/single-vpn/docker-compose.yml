@@ -5,6 +5,7 @@ services:
     env_file: .env
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+      - /srv/docker/config/orchestrator:/app/app/config
     restart: on-failure
     ports:
       - "8000:8000"
